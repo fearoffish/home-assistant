@@ -4,8 +4,6 @@ import unittest
 import tempfile
 
 import homeassistant.components.notify as notify
-from homeassistant.components.notify import (
-    ATTR_TITLE_DEFAULT)
 import homeassistant.util.dt as dt_util
 
 from tests.common import get_test_home_assistant
@@ -44,8 +42,7 @@ class TestNotifyFile(unittest.TestCase):
                     'timestamp': 0
                 }
             }))
-            title = '{} notifications (Log started: {})\n{}\n'.format(
-                ATTR_TITLE_DEFAULT,
+            title = '{} notifications (Log started)\n{}\n'.format(
                 dt_util.strip_microseconds(dt_util.utcnow()),
                 '-' * 80)
 

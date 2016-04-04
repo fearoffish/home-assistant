@@ -19,7 +19,6 @@ DOMAIN = "notify"
 
 # Title of notification
 ATTR_TITLE = "title"
-ATTR_TITLE_DEFAULT = "Home Assistant"
 
 # Target of the notification (user, device, etc)
 ATTR_TARGET = 'target'
@@ -79,8 +78,7 @@ def setup(hass, config):
                     call.service, ATTR_MESSAGE)
                 return
 
-            title = template.render(
-                hass, call.data.get(ATTR_TITLE, ATTR_TITLE_DEFAULT))
+            title = template.render(hass, call.data.get(ATTR_TITLE))
             target = call.data.get(ATTR_TARGET)
             message = template.render(hass, message)
             data = call.data.get(ATTR_DATA)
